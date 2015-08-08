@@ -1,13 +1,11 @@
 <?php
 /**
- * This is our only template file. It's job is to get the content. The content will be responsible for everything else.
+ * This is our only template file. It is only here because every theme is required to have one.
+ *
+ * Actually, this file will probably not get called much, because we are intercepting template-loader.php with a hook on
+ * the template_redirect action.
+ *
+ * If we miss and this file does get called we can hook this and do something useful.
  */
 
-// todo provide a header if none sent by the_content.
-
-if ( have_posts() ) :
-	// Start the Loop.
-	while ( have_posts() ) : the_post();
-		the_content();
-	endwhile;
-endif;
+do_action( 'tigerridge_index' );
